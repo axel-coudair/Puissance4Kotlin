@@ -1,4 +1,4 @@
-package com.example.axel.puissance4
+package com.example.axel.puissance4.model
 
 
 data class Token(val color: String,

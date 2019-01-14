@@ -35,7 +35,16 @@
     <Button
             android:id="@+id/btnPlay"
             android:layout_height="wrap_content"
-            android:layout_width="wrap_content" android:layout_marginTop="100dp"
-            android:text="JOUER" android:layout_below="@+id/editTextPlayer2" android:layout_centerHorizontal="true"/>
+            android:layout_width="wrap_content"
+            android:layout_marginTop="100dp"
+            android:text="JOUER"
+            android:layout_below="@+id/editTextPlayer2"
+            android:layout_centerHorizontal="true"/>
+    <TextView
+            android:text="Veuillez rentrer le nom des players"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true" android:id="@+id/textViewError" android:layout_marginBottom="85dp"
+            android:textColor="@android:color/holo_red_dark" android:visibility="invisible"/>
 
 </RelativeLayout>
