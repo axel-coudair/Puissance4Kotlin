@@ -16,21 +16,23 @@ class MainActivity : AppCompatActivity() {
         val button = findViewById<Button>(R.id.btnPlay)
 
         button.setOnClickListener {
-            onPlayClick()
+            onPlayClick(it)
         }
     }
 
-    fun onPlayClick() {
+    fun onPlayClick(view: View) {
         val errorMessageTextView = findViewById<TextView>(R.id.textViewError)
-    val firstPlayerName = findViewById<EditText>(R.id.editTextPlayer1)
-    val secondPlayerName = findViewById<EditText>(R.id.editTextPlayer2)
+        val firstPlayerName = findViewById<EditText>(R.id.editTextPlayer1)
+        val secondPlayerName = findViewById<EditText>(R.id.editTextPlayer2)
         var firstPlayerNameText = firstPlayerName.text.toString().trim()
         var secondPlayerNameText = secondPlayerName.text.toString().trim()
         if (!firstPlayerNameText.isNullOrBlank() && !secondPlayerNameText.isNullOrBlank()) {
             val intent = Intent(this, GameActivity::class.java)
+            intent.putExtra("firstPlayerName", firstPlayerNameText)
+            intent.putExtra("secondPlayerName", secondPlayerNameText)
             startActivity(intent)
         } else
-            print("wrong")
+            errorMessageTextView.visibility = View.VISIBLE
 
     }
 }
