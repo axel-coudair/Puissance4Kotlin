@@ -25,6 +25,7 @@
             android:layout_centerHorizontal="true" android:layout_below="@+id/player2TextView"/>
 
     <android.support.v7.widget.GridLayout
+            android:id="@+id/gridTokens"
             android:layout_width="match_parent"
             android:layout_height="match_parent" android:layout_alignParentStart="true"
             android:layout_marginStart="0dp" android:layout_alignParentLeft="true"
@@ -41,7 +42,7 @@
                 app:layout_gravity="fill"
                 app:layout_rowWeight="1"
                 app:layout_columnWeight="1"
-        />
+                android:tag="05"/>
         <ImageButton
                 android:layout_width="10dp"
                 android:layout_height="10dp" app:srcCompat="@drawable/rouge" android:id="@+id/imageButton1"
@@ -51,7 +52,7 @@
                 app:layout_gravity="fill"
                 app:layout_rowWeight="1"
                 app:layout_columnWeight="1"
-        />
+                android:tag="15"/>
 
         <ImageButton
                 android:layout_width="10dp"
@@ -63,7 +64,7 @@
                 app:layout_gravity="fill"
                 app:layout_rowWeight="1"
                 app:layout_columnWeight="1"
-        />
+                android:tag="25"/>
 
         <ImageButton
                 android:layout_width="10dp"
@@ -74,7 +75,7 @@
                 app:layout_gravity="fill"
                 app:layout_rowWeight="1"
                 app:layout_columnWeight="1"
-        />
+                android:tag="35"/>
 
         <ImageButton
                 android:layout_width="10dp"
@@ -85,7 +86,7 @@
                 app:layout_gravity="fill"
                 app:layout_rowWeight="1"
                 app:layout_columnWeight="1"
-        />
+                android:tag="45"/>
         <ImageButton
                 android:layout_width="10dp"
                 android:layout_height="10dp" app:srcCompat="@drawable/rouge" android:id="@+id/imageButton5"
@@ -95,7 +96,7 @@
                 app:layout_gravity="fill"
                 app:layout_rowWeight="1"
                 app:layout_columnWeight="1"
-        />
+                android:tag="55"/>
         <ImageButton
                 android:layout_width="10dp"
                 android:layout_height="10dp" app:srcCompat="@drawable/rouge" android:id="@+id/imageButton6"
@@ -105,7 +106,7 @@
                 app:layout_gravity="fill"
                 app:layout_rowWeight="1"
                 app:layout_columnWeight="1"
-        />
+                android:tag="65"/>
         <ImageButton
                 android:layout_width="10dp"
                 android:layout_height="10dp" app:srcCompat="@drawable/rouge" android:id="@+id/imageButton10"
@@ -115,7 +116,7 @@
                 app:layout_gravity="fill"
                 app:layout_rowWeight="1"
                 app:layout_columnWeight="1"
-        />
+                android:tag="04"/>
         <ImageButton
                 android:layout_width="10dp"
                 android:layout_height="10dp" app:srcCompat="@drawable/rouge" android:id="@+id/imageButton11"
@@ -125,7 +126,7 @@
                 app:layout_gravity="fill"
                 app:layout_rowWeight="1"
                 app:layout_columnWeight="1"
-        />
+                android:tag="14"/>
 
         <ImageButton
                 android:layout_width="10dp"
@@ -136,7 +137,7 @@
                 app:layout_gravity="fill"
                 app:layout_rowWeight="1"
                 app:layout_columnWeight="1"
-        />
+                android:tag="24"/>
         <ImageButton
                 android:layout_width="10dp"
                 android:layout_height="10dp" app:srcCompat="@drawable/rouge" android:id="@+id/imageButton13"
@@ -146,7 +147,7 @@
                 app:layout_gravity="fill"
                 app:layout_rowWeight="1"
                 app:layout_columnWeight="1"
-        />
+                android:tag="34"/>
 
         <ImageButton
                 android:layout_width="10dp"
@@ -157,7 +158,7 @@
                 app:layout_gravity="fill"
                 app:layout_rowWeight="1"
                 app:layout_columnWeight="1"
-        />
+                android:tag="44"/>
         <ImageButton
                 android:layout_width="10dp"
                 android:layout_height="10dp" app:srcCompat="@drawable/rouge" android:id="@+id/imageButton15"
@@ -167,7 +168,7 @@
                 app:layout_gravity="fill"
                 app:layout_rowWeight="1"
                 app:layout_columnWeight="1"
-        />
+                android:tag="54"/>
         <ImageButton
                 android:layout_width="10dp"
                 android:layout_height="10dp" app:srcCompat="@drawable/rouge" android:id="@+id/imageButton16"
@@ -177,7 +178,7 @@
                 app:layout_gravity="fill"
                 app:layout_rowWeight="1"
                 app:layout_columnWeight="1"
-        />
+                android:tag="64"/>
         <ImageButton
                 android:layout_width="10dp"
                 android:layout_height="10dp" app:srcCompat="@drawable/rouge" android:id="@+id/imageButton20"
@@ -187,7 +188,7 @@
                 app:layout_gravity="fill"
                 app:layout_rowWeight="1"
                 app:layout_columnWeight="1"
-        />
+                android:tag="03"/>
         <ImageButton
                 android:layout_width="10dp"
                 android:layout_height="10dp" app:srcCompat="@drawable/rouge" android:id="@+id/imageButton21"
@@ -197,7 +198,7 @@
                 app:layout_gravity="fill"
                 app:layout_rowWeight="1"
                 app:layout_columnWeight="1"
-        />
+                android:tag="13"/>
 
         <ImageButton
                 android:layout_width="10dp"
@@ -208,7 +209,7 @@
                 app:layout_gravity="fill"
                 app:layout_rowWeight="1"
                 app:layout_columnWeight="1"
-        />
+                android:tag="23"/>
         <ImageButton
                 android:layout_width="10dp"
                 android:layout_height="10dp" app:srcCompat="@drawable/rouge" android:id="@+id/imageButton23"
@@ -218,7 +219,7 @@
                 app:layout_gravity="fill"
                 app:layout_rowWeight="1"
                 app:layout_columnWeight="1"
-        />
+                android:tag="33"/>
 
         <ImageButton
                 android:layout_width="10dp"
@@ -229,7 +230,7 @@
                 app:layout_gravity="fill"
                 app:layout_rowWeight="1"
                 app:layout_columnWeight="1"
-        />
+                android:tag="43"/>
         <ImageButton
                 android:layout_width="10dp"
                 android:layout_height="10dp" app:srcCompat="@drawable/rouge" android:id="@+id/imageButton25"
@@ -239,7 +240,7 @@
                 app:layout_gravity="fill"
                 app:layout_rowWeight="1"
                 app:layout_columnWeight="1"
-        />
+                android:tag="53"/>
         <ImageButton
                 android:layout_width="10dp"
                 android:layout_height="10dp" app:srcCompat="@drawable/rouge" android:id="@+id/imageButton26"
@@ -249,7 +250,7 @@
                 app:layout_gravity="fill"
                 app:layout_rowWeight="1"
                 app:layout_columnWeight="1"
-        />
+                android:tag="63"/>
         <ImageButton
                 android:layout_width="10dp"
                 android:layout_height="10dp" app:srcCompat="@drawable/rouge" android:id="@+id/imageButton30"
@@ -259,7 +260,7 @@
                 app:layout_gravity="fill"
                 app:layout_rowWeight="1"
                 app:layout_columnWeight="1"
-        />
+                android:tag="02"/>
         <ImageButton
                 android:layout_width="10dp"
                 android:layout_height="10dp" app:srcCompat="@drawable/rouge" android:id="@+id/imageButton31"
@@ -269,7 +270,7 @@
                 app:layout_gravity="fill"
                 app:layout_rowWeight="1"
                 app:layout_columnWeight="1"
-        />
+                android:tag="12"/>
 
         <ImageButton
                 android:layout_width="10dp"
@@ -280,7 +281,7 @@
                 app:layout_gravity="fill"
                 app:layout_rowWeight="1"
                 app:layout_columnWeight="1"
-        />
+                android:tag="22"/>
         <ImageButton
                 android:layout_width="10dp"
                 android:layout_height="10dp" app:srcCompat="@drawable/rouge" android:id="@+id/imageButton33"
@@ -290,7 +291,7 @@
                 app:layout_gravity="fill"
                 app:layout_rowWeight="1"
                 app:layout_columnWeight="1"
-        />
+                android:tag="32"/>
 
         <ImageButton
                 android:layout_width="10dp"
@@ -301,7 +302,7 @@
                 app:layout_gravity="fill"
                 app:layout_rowWeight="1"
                 app:layout_columnWeight="1"
-        />
+                android:tag="42"/>
         <ImageButton
                 android:layout_width="10dp"
                 android:layout_height="10dp" app:srcCompat="@drawable/rouge" android:id="@+id/imageButton35"
@@ -311,7 +312,7 @@
                 app:layout_gravity="fill"
                 app:layout_rowWeight="1"
                 app:layout_columnWeight="1"
-        />
+                android:tag="52"/>
         <ImageButton
                 android:layout_width="10dp"
                 android:layout_height="10dp" app:srcCompat="@drawable/rouge" android:id="@+id/imageButton36"
@@ -321,7 +322,7 @@
                 app:layout_gravity="fill"
                 app:layout_rowWeight="1"
                 app:layout_columnWeight="1"
-        />
+                android:tag="62"/>
         <ImageButton
                 android:layout_width="10dp"
                 android:layout_height="10dp" app:srcCompat="@drawable/rouge" android:id="@+id/imageButton40"
@@ -331,7 +332,7 @@
                 app:layout_gravity="fill"
                 app:layout_rowWeight="1"
                 app:layout_columnWeight="1"
-        />
+                android:tag="01"/>
         <ImageButton
                 android:layout_width="10dp"
                 android:layout_height="10dp" app:srcCompat="@drawable/rouge" android:id="@+id/imageButton41"
@@ -341,7 +342,7 @@
                 app:layout_gravity="fill"
                 app:layout_rowWeight="1"
                 app:layout_columnWeight="1"
-        />
+                android:tag="11"/>
 
         <ImageButton
                 android:layout_width="10dp"
@@ -352,7 +353,7 @@
                 app:layout_gravity="fill"
                 app:layout_rowWeight="1"
                 app:layout_columnWeight="1"
-        />
+                android:tag="21"/>
         <ImageButton
                 android:layout_width="10dp"
                 android:layout_height="10dp" app:srcCompat="@drawable/rouge" android:id="@+id/imageButton43"
@@ -362,7 +363,7 @@
                 app:layout_gravity="fill"
                 app:layout_rowWeight="1"
                 app:layout_columnWeight="1"
-        />
+                android:tag="31"/>
 
         <ImageButton
                 android:layout_width="10dp"
@@ -373,7 +374,7 @@
                 app:layout_gravity="fill"
                 app:layout_rowWeight="1"
                 app:layout_columnWeight="1"
-        />
+                android:tag="41"/>
         <ImageButton
                 android:layout_width="10dp"
                 android:layout_height="10dp" app:srcCompat="@drawable/rouge" android:id="@+id/imageButton45"
@@ -383,7 +384,7 @@
                 app:layout_gravity="fill"
                 app:layout_rowWeight="1"
                 app:layout_columnWeight="1"
-        />
+                android:tag="51"/>
         <ImageButton
                 android:layout_width="10dp"
                 android:layout_height="10dp" app:srcCompat="@drawable/rouge" android:id="@+id/imageButton46"
@@ -393,7 +394,7 @@
                 app:layout_gravity="fill"
                 app:layout_rowWeight="1"
                 app:layout_columnWeight="1"
-        />
+                android:tag="61"/>
 
         <ImageButton
                 android:layout_width="10dp"
@@ -404,7 +405,7 @@
                 app:layout_gravity="fill"
                 app:layout_rowWeight="1"
                 app:layout_columnWeight="1"
-        />
+                android:tag="00"/>
         <ImageButton
                 android:layout_width="10dp"
                 android:layout_height="10dp" app:srcCompat="@drawable/rouge" android:id="@+id/imageButton51"
@@ -414,7 +415,7 @@
                 app:layout_gravity="fill"
                 app:layout_rowWeight="1"
                 app:layout_columnWeight="1"
-        />
+                android:tag="10"/>
 
         <ImageButton
                 android:layout_width="10dp"
@@ -425,7 +426,7 @@
                 app:layout_gravity="fill"
                 app:layout_rowWeight="1"
                 app:layout_columnWeight="1"
-        />
+                android:tag="20"/>
         <ImageButton
                 android:layout_width="10dp"
                 android:layout_height="10dp" app:srcCompat="@drawable/rouge" android:id="@+id/imageButton53"
@@ -435,7 +436,7 @@
                 app:layout_gravity="fill"
                 app:layout_rowWeight="1"
                 app:layout_columnWeight="1"
-        />
+                android:tag="30"/>
 
         <ImageButton
                 android:layout_width="10dp"
@@ -446,7 +447,7 @@
                 app:layout_gravity="fill"
                 app:layout_rowWeight="1"
                 app:layout_columnWeight="1"
-        />
+                android:tag="40"/>
         <ImageButton
                 android:layout_width="10dp"
                 android:layout_height="10dp" app:srcCompat="@drawable/rouge" android:id="@+id/imageButton55"
@@ -456,7 +457,7 @@
                 app:layout_gravity="fill"
                 app:layout_rowWeight="1"
                 app:layout_columnWeight="1"
-        />
+                android:tag="50"/>
         <ImageButton
                 android:layout_width="10dp"
                 android:layout_height="10dp" app:srcCompat="@drawable/rouge" android:id="@+id/imageButton56"
@@ -466,6 +467,6 @@
                 app:layout_gravity="fill"
                 app:layout_rowWeight="1"
                 app:layout_columnWeight="1"
-        />
+                android:tag="60"/>
     </android.support.v7.widget.GridLayout>
 </RelativeLayout>

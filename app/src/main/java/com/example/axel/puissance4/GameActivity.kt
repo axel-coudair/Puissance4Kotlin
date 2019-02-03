@@ -1,20 +1,38 @@
 package com.example.axel.puissance4
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.GridLayout
+import android.widget.ImageButton
 import android.widget.TextView
 import com.example.axel.puissance4.model.Player
-import com.example.axel.puissance4.presentation.P4View
 import com.example.axel.puissance4.presentation.P4Presenter
+import com.example.axel.puissance4.presentation.P4View
+
 
 class GameActivity : P4View, AppCompatActivity() {
 
     private val presenter: P4Presenter = P4Presenter(this)
+    private lateinit var grid: GridLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game)
+
+        grid = findViewById(R.id.gridTokens)
         presenter.startGame()
+
+        for (i in 0 until grid.childCount) {
+            val token = grid.getChildAt(i) as ImageButton
+            token.setOnClickListener { v -> onClickToken(v as ImageButton) }
+        }
+    }
+
+    private fun onClickToken(view: ImageButton) {
+        val tag: String = view.tag.toString()
+        val x: Char = tag[0]
+        val y: Char = tag[1]
+        view.setImageResource(R.drawable.yellow)
     }
 
     override fun getPlayer1Name(): String {
@@ -26,9 +44,8 @@ class GameActivity : P4View, AppCompatActivity() {
     }
 
     override fun setNameLabel(player1: Player, player2: Player) {
-
-        var firstPlayerTextView = findViewById<TextView>(R.id.player1TextView)
-        var secondPlayerTextView = findViewById<TextView>(R.id.player2TextView)
+        val firstPlayerTextView = findViewById<TextView>(R.id.player1TextView)
+        val secondPlayerTextView = findViewById<TextView>(R.id.player2TextView)
 
         firstPlayerTextView.text = player1.name
         secondPlayerTextView.text = player2.name
