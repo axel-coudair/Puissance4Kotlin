@@ -8,21 +8,23 @@
             android:text="TextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/player2TextView" android:textSize="18sp"
-            android:layout_alignParentEnd="true" android:layout_alignParentTop="true"/>
+            android:layout_alignParentEnd="true" android:layout_alignParentTop="true" android:textStyle="bold"
+            android:textColor="@android:color/holo_red_dark"/>
     <TextView
             android:text="TextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/player1TextView"
             android:textSize="18sp"
-    />
+            android:textColor="@android:color/holo_orange_light" android:textStyle="bold"/>
     <TextView
             android:text="TextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/turnTextView"
-            android:textSize="18sp"
-            android:layout_centerHorizontal="true" android:layout_below="@+id/player2TextView"/>
+            android:textSize="22sp"
+            android:layout_centerHorizontal="true" android:layout_below="@+id/player2TextView"
+            android:textColor="@android:color/black" android:textStyle="bold"/>
 
     <android.support.v7.widget.GridLayout
             android:id="@+id/gridTokens"
@@ -35,7 +37,7 @@
 
         <ImageButton
                 android:layout_width="10dp"
-                android:layout_height="10dp" app:srcCompat="@drawable/rouge" android:id="@+id/imageButton0"
+                android:layout_height="10dp" app:srcCompat="@drawable/white" android:id="@+id/imageButton0"
                 android:scaleType="fitXY"
                 app:layout_column="0"
                 app:layout_row="0"
@@ -45,7 +47,7 @@
                 android:tag="05"/>
         <ImageButton
                 android:layout_width="10dp"
-                android:layout_height="10dp" app:srcCompat="@drawable/rouge" android:id="@+id/imageButton1"
+                android:layout_height="10dp" app:srcCompat="@drawable/white" android:id="@+id/imageButton1"
                 android:scaleType="fitXY"
                 app:layout_column="1"
                 app:layout_row="0"
@@ -57,7 +59,7 @@
         <ImageButton
                 android:layout_width="10dp"
                 android:layout_height="10dp"
-                app:srcCompat="@drawable/rouge" android:id="@+id/imageButton2"
+                app:srcCompat="@drawable/white" android:id="@+id/imageButton2"
                 android:scaleType="fitXY"
                 app:layout_column="2"
                 app:layout_row="0"
@@ -68,7 +70,7 @@
 
         <ImageButton
                 android:layout_width="10dp"
-                android:layout_height="10dp" app:srcCompat="@drawable/rouge" android:id="@+id/imageButton3"
+                android:layout_height="10dp" app:srcCompat="@drawable/white" android:id="@+id/imageButton3"
                 android:scaleType="fitXY"
                 app:layout_column="3"
                 app:layout_row="0"
@@ -79,7 +81,7 @@
 
         <ImageButton
                 android:layout_width="10dp"
-                android:layout_height="10dp" app:srcCompat="@drawable/rouge" android:id="@+id/imageButton4"
+                android:layout_height="10dp" app:srcCompat="@drawable/white" android:id="@+id/imageButton4"
                 android:scaleType="fitXY"
                 app:layout_column="4"
                 app:layout_row="0"
@@ -89,7 +91,7 @@
                 android:tag="45"/>
         <ImageButton
                 android:layout_width="10dp"
-                android:layout_height="10dp" app:srcCompat="@drawable/rouge" android:id="@+id/imageButton5"
+                android:layout_height="10dp" app:srcCompat="@drawable/white" android:id="@+id/imageButton5"
                 android:scaleType="fitXY"
                 app:layout_column="5"
                 app:layout_row="0"
@@ -99,7 +101,7 @@
                 android:tag="55"/>
         <ImageButton
                 android:layout_width="10dp"
-                android:layout_height="10dp" app:srcCompat="@drawable/rouge" android:id="@+id/imageButton6"
+                android:layout_height="10dp" app:srcCompat="@drawable/white" android:id="@+id/imageButton6"
                 android:scaleType="fitXY"
                 app:layout_column="6"
                 app:layout_row="0"
@@ -109,7 +111,7 @@
                 android:tag="65"/>
         <ImageButton
                 android:layout_width="10dp"
-                android:layout_height="10dp" app:srcCompat="@drawable/rouge" android:id="@+id/imageButton10"
+                android:layout_height="10dp" app:srcCompat="@drawable/white" android:id="@+id/imageButton10"
                 android:scaleType="fitXY"
                 app:layout_column="0"
                 app:layout_row="1"
@@ -119,7 +121,7 @@
                 android:tag="04"/>
         <ImageButton
                 android:layout_width="10dp"
-                android:layout_height="10dp" app:srcCompat="@drawable/rouge" android:id="@+id/imageButton11"
+                android:layout_height="10dp" app:srcCompat="@drawable/white" android:id="@+id/imageButton11"
                 android:scaleType="fitXY"
                 app:layout_column="1"
                 app:layout_row="1"
@@ -130,7 +132,7 @@
 
         <ImageButton
                 android:layout_width="10dp"
-                android:layout_height="10dp" app:srcCompat="@drawable/rouge" android:id="@+id/imageButton12"
+                android:layout_height="10dp" app:srcCompat="@drawable/white" android:id="@+id/imageButton12"
                 android:scaleType="fitXY"
                 app:layout_column="2"
                 app:layout_row="1"
@@ -140,7 +142,7 @@
                 android:tag="24"/>
         <ImageButton
                 android:layout_width="10dp"
-                android:layout_height="10dp" app:srcCompat="@drawable/rouge" android:id="@+id/imageButton13"
+                android:layout_height="10dp" app:srcCompat="@drawable/white" android:id="@+id/imageButton13"
                 android:scaleType="fitXY"
                 app:layout_column="3"
                 app:layout_row="1"
@@ -151,7 +153,7 @@
 
         <ImageButton
                 android:layout_width="10dp"
-                android:layout_height="10dp" app:srcCompat="@drawable/rouge" android:id="@+id/imageButton14"
+                android:layout_height="10dp" app:srcCompat="@drawable/white" android:id="@+id/imageButton14"
                 android:scaleType="fitXY"
                 app:layout_column="4"
                 app:layout_row="1"
@@ -161,7 +163,7 @@
                 android:tag="44"/>
         <ImageButton
                 android:layout_width="10dp"
-                android:layout_height="10dp" app:srcCompat="@drawable/rouge" android:id="@+id/imageButton15"
+                android:layout_height="10dp" app:srcCompat="@drawable/white" android:id="@+id/imageButton15"
                 android:scaleType="fitXY"
                 app:layout_column="5"
                 app:layout_row="1"
@@ -171,7 +173,7 @@
                 android:tag="54"/>
         <ImageButton
                 android:layout_width="10dp"
-                android:layout_height="10dp" app:srcCompat="@drawable/rouge" android:id="@+id/imageButton16"
+                android:layout_height="10dp" app:srcCompat="@drawable/white" android:id="@+id/imageButton16"
                 android:scaleType="fitXY"
                 app:layout_column="6"
                 app:layout_row="1"
@@ -181,7 +183,7 @@
                 android:tag="64"/>
         <ImageButton
                 android:layout_width="10dp"
-                android:layout_height="10dp" app:srcCompat="@drawable/rouge" android:id="@+id/imageButton20"
+                android:layout_height="10dp" app:srcCompat="@drawable/white" android:id="@+id/imageButton20"
                 android:scaleType="fitXY"
                 app:layout_column="0"
                 app:layout_row="2"
@@ -191,7 +193,7 @@
                 android:tag="03"/>
         <ImageButton
                 android:layout_width="10dp"
-                android:layout_height="10dp" app:srcCompat="@drawable/rouge" android:id="@+id/imageButton21"
+                android:layout_height="10dp" app:srcCompat="@drawable/white" android:id="@+id/imageButton21"
                 android:scaleType="fitXY"
                 app:layout_column="1"
                 app:layout_row="2"
@@ -202,7 +204,7 @@
 
         <ImageButton
                 android:layout_width="10dp"
-                android:layout_height="10dp" app:srcCompat="@drawable/rouge" android:id="@+id/imageButton22"
+                android:layout_height="10dp" app:srcCompat="@drawable/white" android:id="@+id/imageButton22"
                 android:scaleType="fitXY"
                 app:layout_column="2"
                 app:layout_row="2"
@@ -212,7 +214,7 @@
                 android:tag="23"/>
         <ImageButton
                 android:layout_width="10dp"
-                android:layout_height="10dp" app:srcCompat="@drawable/rouge" android:id="@+id/imageButton23"
+                android:layout_height="10dp" app:srcCompat="@drawable/white" android:id="@+id/imageButton23"
                 android:scaleType="fitXY"
                 app:layout_column="3"
                 app:layout_row="2"
@@ -223,7 +225,7 @@
 
         <ImageButton
                 android:layout_width="10dp"
-                android:layout_height="10dp" app:srcCompat="@drawable/rouge" android:id="@+id/imageButton24"
+                android:layout_height="10dp" app:srcCompat="@drawable/white" android:id="@+id/imageButton24"
                 android:scaleType="fitXY"
                 app:layout_column="4"
                 app:layout_row="2"
@@ -233,7 +235,7 @@
                 android:tag="43"/>
         <ImageButton
                 android:layout_width="10dp"
-                android:layout_height="10dp" app:srcCompat="@drawable/rouge" android:id="@+id/imageButton25"
+                android:layout_height="10dp" app:srcCompat="@drawable/white" android:id="@+id/imageButton25"
                 android:scaleType="fitXY"
                 app:layout_column="5"
                 app:layout_row="2"
@@ -243,7 +245,7 @@
                 android:tag="53"/>
         <ImageButton
                 android:layout_width="10dp"
-                android:layout_height="10dp" app:srcCompat="@drawable/rouge" android:id="@+id/imageButton26"
+                android:layout_height="10dp" app:srcCompat="@drawable/white" android:id="@+id/imageButton26"
                 android:scaleType="fitXY"
                 app:layout_column="6"
                 app:layout_row="2"
@@ -253,7 +255,7 @@
                 android:tag="63"/>
         <ImageButton
                 android:layout_width="10dp"
-                android:layout_height="10dp" app:srcCompat="@drawable/rouge" android:id="@+id/imageButton30"
+                android:layout_height="10dp" app:srcCompat="@drawable/white" android:id="@+id/imageButton30"
                 android:scaleType="fitXY"
                 app:layout_column="0"
                 app:layout_row="3"
@@ -263,7 +265,7 @@
                 android:tag="02"/>
         <ImageButton
                 android:layout_width="10dp"
-                android:layout_height="10dp" app:srcCompat="@drawable/rouge" android:id="@+id/imageButton31"
+                android:layout_height="10dp" app:srcCompat="@drawable/white" android:id="@+id/imageButton31"
                 android:scaleType="fitXY"
                 app:layout_column="1"
                 app:layout_row="3"
@@ -274,7 +276,7 @@
 
         <ImageButton
                 android:layout_width="10dp"
-                android:layout_height="10dp" app:srcCompat="@drawable/rouge" android:id="@+id/imageButton32"
+                android:layout_height="10dp" app:srcCompat="@drawable/white" android:id="@+id/imageButton32"
                 android:scaleType="fitXY"
                 app:layout_column="2"
                 app:layout_row="3"
@@ -284,7 +286,7 @@
                 android:tag="22"/>
         <ImageButton
                 android:layout_width="10dp"
-                android:layout_height="10dp" app:srcCompat="@drawable/rouge" android:id="@+id/imageButton33"
+                android:layout_height="10dp" app:srcCompat="@drawable/white" android:id="@+id/imageButton33"
                 android:scaleType="fitXY"
                 app:layout_column="3"
                 app:layout_row="3"
@@ -295,7 +297,7 @@
 
         <ImageButton
                 android:layout_width="10dp"
-                android:layout_height="10dp" app:srcCompat="@drawable/rouge" android:id="@+id/imageButton34"
+                android:layout_height="10dp" app:srcCompat="@drawable/white" android:id="@+id/imageButton34"
                 android:scaleType="fitXY"
                 app:layout_column="4"
                 app:layout_row="3"
@@ -305,7 +307,7 @@
                 android:tag="42"/>
         <ImageButton
                 android:layout_width="10dp"
-                android:layout_height="10dp" app:srcCompat="@drawable/rouge" android:id="@+id/imageButton35"
+                android:layout_height="10dp" app:srcCompat="@drawable/white" android:id="@+id/imageButton35"
                 android:scaleType="fitXY"
                 app:layout_column="5"
                 app:layout_row="3"
@@ -315,7 +317,7 @@
                 android:tag="52"/>
         <ImageButton
                 android:layout_width="10dp"
-                android:layout_height="10dp" app:srcCompat="@drawable/rouge" android:id="@+id/imageButton36"
+                android:layout_height="10dp" app:srcCompat="@drawable/white" android:id="@+id/imageButton36"
                 android:scaleType="fitXY"
                 app:layout_column="6"
                 app:layout_row="3"
@@ -325,7 +327,7 @@
                 android:tag="62"/>
         <ImageButton
                 android:layout_width="10dp"
-                android:layout_height="10dp" app:srcCompat="@drawable/rouge" android:id="@+id/imageButton40"
+                android:layout_height="10dp" app:srcCompat="@drawable/white" android:id="@+id/imageButton40"
                 android:scaleType="fitXY"
                 app:layout_column="0"
                 app:layout_row="4"
@@ -335,7 +337,7 @@
                 android:tag="01"/>
         <ImageButton
                 android:layout_width="10dp"
-                android:layout_height="10dp" app:srcCompat="@drawable/rouge" android:id="@+id/imageButton41"
+                android:layout_height="10dp" app:srcCompat="@drawable/white" android:id="@+id/imageButton41"
                 android:scaleType="fitXY"
                 app:layout_column="1"
                 app:layout_row="4"
@@ -346,7 +348,7 @@
 
         <ImageButton
                 android:layout_width="10dp"
-                android:layout_height="10dp" app:srcCompat="@drawable/rouge" android:id="@+id/imageButton42"
+                android:layout_height="10dp" app:srcCompat="@drawable/white" android:id="@+id/imageButton42"
                 android:scaleType="fitXY"
                 app:layout_column="2"
                 app:layout_row="4"
@@ -356,7 +358,7 @@
                 android:tag="21"/>
         <ImageButton
                 android:layout_width="10dp"
-                android:layout_height="10dp" app:srcCompat="@drawable/rouge" android:id="@+id/imageButton43"
+                android:layout_height="10dp" app:srcCompat="@drawable/white" android:id="@+id/imageButton43"
                 android:scaleType="fitXY"
                 app:layout_column="3"
                 app:layout_row="4"
@@ -367,7 +369,7 @@
 
         <ImageButton
                 android:layout_width="10dp"
-                android:layout_height="10dp" app:srcCompat="@drawable/rouge" android:id="@+id/imageButton44"
+                android:layout_height="10dp" app:srcCompat="@drawable/white" android:id="@+id/imageButton44"
                 android:scaleType="fitXY"
                 app:layout_column="4"
                 app:layout_row="4"
@@ -377,7 +379,7 @@
                 android:tag="41"/>
         <ImageButton
                 android:layout_width="10dp"
-                android:layout_height="10dp" app:srcCompat="@drawable/rouge" android:id="@+id/imageButton45"
+                android:layout_height="10dp" app:srcCompat="@drawable/white" android:id="@+id/imageButton45"
                 android:scaleType="fitXY"
                 app:layout_column="5"
                 app:layout_row="4"
@@ -387,7 +389,7 @@
                 android:tag="51"/>
         <ImageButton
                 android:layout_width="10dp"
-                android:layout_height="10dp" app:srcCompat="@drawable/rouge" android:id="@+id/imageButton46"
+                android:layout_height="10dp" app:srcCompat="@drawable/white" android:id="@+id/imageButton46"
                 android:scaleType="fitXY"
                 app:layout_column="6"
                 app:layout_row="4"
@@ -398,7 +400,7 @@
 
         <ImageButton
                 android:layout_width="10dp"
-                android:layout_height="10dp" app:srcCompat="@drawable/rouge" android:id="@+id/imageButton50"
+                android:layout_height="10dp" app:srcCompat="@drawable/white" android:id="@+id/imageButton50"
                 android:scaleType="fitXY"
                 app:layout_column="0"
                 app:layout_row="5"
@@ -408,7 +410,7 @@
                 android:tag="00"/>
         <ImageButton
                 android:layout_width="10dp"
-                android:layout_height="10dp" app:srcCompat="@drawable/rouge" android:id="@+id/imageButton51"
+                android:layout_height="10dp" app:srcCompat="@drawable/white" android:id="@+id/imageButton51"
                 android:scaleType="fitXY"
                 app:layout_column="1"
                 app:layout_row="5"
@@ -419,7 +421,7 @@
 
         <ImageButton
                 android:layout_width="10dp"
-                android:layout_height="10dp" app:srcCompat="@drawable/rouge" android:id="@+id/imageButton52"
+                android:layout_height="10dp" app:srcCompat="@drawable/white" android:id="@+id/imageButton52"
                 android:scaleType="fitXY"
                 app:layout_column="2"
                 app:layout_row="5"
@@ -429,7 +431,7 @@
                 android:tag="20"/>
         <ImageButton
                 android:layout_width="10dp"
-                android:layout_height="10dp" app:srcCompat="@drawable/rouge" android:id="@+id/imageButton53"
+                android:layout_height="10dp" app:srcCompat="@drawable/white" android:id="@+id/imageButton53"
                 android:scaleType="fitXY"
                 app:layout_column="3"
                 app:layout_row="5"
@@ -440,7 +442,7 @@
 
         <ImageButton
                 android:layout_width="10dp"
-                android:layout_height="10dp" app:srcCompat="@drawable/rouge" android:id="@+id/imageButton54"
+                android:layout_height="10dp" app:srcCompat="@drawable/white" android:id="@+id/imageButton54"
                 android:scaleType="fitXY"
                 app:layout_column="4"
                 app:layout_row="5"
@@ -450,7 +452,7 @@
                 android:tag="40"/>
         <ImageButton
                 android:layout_width="10dp"
-                android:layout_height="10dp" app:srcCompat="@drawable/rouge" android:id="@+id/imageButton55"
+                android:layout_height="10dp" app:srcCompat="@drawable/white" android:id="@+id/imageButton55"
                 android:scaleType="fitXY"
                 app:layout_column="5"
                 app:layout_row="5"
@@ -460,7 +462,7 @@
                 android:tag="50"/>
         <ImageButton
                 android:layout_width="10dp"
-                android:layout_height="10dp" app:srcCompat="@drawable/rouge" android:id="@+id/imageButton56"
+                android:layout_height="10dp" app:srcCompat="@drawable/white" android:id="@+id/imageButton56"
                 android:scaleType="fitXY"
                 app:layout_column="6"
                 app:layout_row="5"
