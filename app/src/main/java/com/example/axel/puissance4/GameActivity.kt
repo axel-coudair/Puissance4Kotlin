@@ -25,8 +25,8 @@ class GameActivity : P4View, AppCompatActivity() {
     }
 
     override fun setNamesText(player1: Player, player2: Player) {
-        player1TextView.text = player1.name
-        player2TextView.text = player2.name
+        player1TextView.text = "${player1.name} : ${player1.score}"
+        player2TextView.text = "${player2.name} : ${player2.score}"
     }
 
     override fun showCannotAddToken() {

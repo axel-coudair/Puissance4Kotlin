@@ -25,13 +25,14 @@
             android:textSize="22sp"
             android:layout_centerHorizontal="true" android:layout_below="@+id/player2TextView"
             android:textColor="@android:color/black" android:textStyle="bold"/>
-
+    <include layout="@layout/restartmenu" android:visibility="invisible"
+    />
     <android.support.v7.widget.GridLayout
             android:id="@+id/gridTokens"
             android:layout_width="match_parent"
             android:layout_height="match_parent" android:layout_alignParentStart="true"
             android:layout_marginStart="0dp" android:layout_alignParentLeft="true"
-            android:layout_marginTop="30dp" android:layout_marginBottom="20dp" android:layout_marginLeft="5dp" android:layout_marginRight="5dp"
+            android:layout_marginTop="30dp" android:layout_marginBottom="100dp" android:layout_marginLeft="5dp" android:layout_marginRight="5dp"
             app:columnCount="7" android:layout_alignParentBottom="true"
             android:layout_below="@+id/turnTextView">
 

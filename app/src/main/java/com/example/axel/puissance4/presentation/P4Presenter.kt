@@ -2,6 +2,7 @@ package com.example.axel.puissance4.presentation
 
 
 import android.support.v7.widget.GridLayout
+import android.view.View
 import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
@@ -16,6 +17,7 @@ class P4Presenter(val view: GameActivity) {
     //TODO : Essayer de rendre le code plus élégant (MVP) + Recupérer la combinaison gagnante et l'afficher sur l'UI (avec encadré rouge ?) + Gérer fin de partie
 
     private lateinit var grid: GridLayout
+    private lateinit var menu: GridLayout
     private lateinit var playerTurn: Player
     private lateinit var player1: Player
     private lateinit var player2: Player
@@ -24,6 +26,7 @@ class P4Presenter(val view: GameActivity) {
 
     fun startGame() {
         grid = view.findViewById(R.id.gridTokens)
+        menu = view.findViewById(R.id.gridWinMenu)
         player1 = Player(view.intent.getStringExtra("firstPlayerName"), 0, TokenColor.YELLOW)
         player2 = Player(view.intent.getStringExtra("secondPlayerName"), 0, TokenColor.RED)
         startAGamePlay()
@@ -75,13 +78,10 @@ class P4Presenter(val view: GameActivity) {
         while (arrTokens.find { it.x == newToken.x && it.y == (newToken.y!! - compteur ) && it.player == player } != null) { // Check bottom-side
             compteur++
         }
-
         if (compteur >= 4){
-
-            playerTurn.score++
-            startAGamePlay()
-            return view.displayWinner(playerTurn.name!!)
+            handleWin()
         }
+
     }
 
     private fun checkLeftAndRight(player: Player, newToken: Token) {
@@ -93,7 +93,7 @@ class P4Presenter(val view: GameActivity) {
         while (arrTokens.find { it.x == (newToken.x - compteurLeft - 1) && it.y == newToken.y && it.player == player } != null) { // Check left-side
             compteurLeft++
         }
-        handleWinOrSwitch(compteurLeft, compteurRight)
+        checkWin(compteurLeft, compteurRight)
     }
 
     private fun checkRising(player: Player, newToken: Token) {
@@ -106,7 +106,7 @@ class P4Presenter(val view: GameActivity) {
             compteurBotLeft++
         }
 
-        handleWinOrSwitch(compteurTopRight, compteurBotLeft)
+        checkWin(compteurTopRight, compteurBotLeft)
     }
 
     private fun checkDecresent(player: Player, newToken: Token) {
@@ -118,15 +118,27 @@ class P4Presenter(val view: GameActivity) {
             compteurTopLeft++
         }
 
-        handleWinOrSwitch(compteurBotRight, compteurTopLeft)
+        checkWin(compteurBotRight, compteurTopLeft)
     }
 
-    private fun handleWinOrSwitch(firstCounter: Int, secondCounter: Int){
-        if (firstCounter + secondCounter >= 3){
+    private fun checkWin(firstCounter: Int, secondCounter: Int){
+        if (firstCounter + secondCounter!! >= 3)
+            handleWin()
+    }
+
+    private fun handleWin(){
             playerTurn.score++
+
+            showMenu(playerTurn)
             startAGamePlay()
             return view.displayWinner(playerTurn.name!!)
-        }
+    }
+
+    private fun showMenu(player: Player){
+
+        menu.visibility = View.VISIBLE
+        menu.bringToFront()
+//        startAGamePlay()
     }
 
     private fun handleGameState(player: Player, newToken: Token) {
