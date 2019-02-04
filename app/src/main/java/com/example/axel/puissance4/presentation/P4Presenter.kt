@@ -63,9 +63,8 @@ class P4Presenter(val view: GameActivity) {
             compteur++
         }
 
-        if (compteur >= 4) {
+        if (compteur >= 4)
             return view.displayWinner(playerTurn.name!!)
-        } else switchPlayerTurn()
     }
 
     private fun checkLeftAndRight(player: Player, newToken: Token) {
@@ -106,9 +105,8 @@ class P4Presenter(val view: GameActivity) {
     }
 
     private fun handleWinOrSwitch(firstCounter: Int, secondCounter: Int){
-        if (firstCounter + secondCounter >= 3) {
+        if (firstCounter + secondCounter >= 3)
             return view.displayWinner(playerTurn.name!!)
-        } else switchPlayerTurn()
     }
 
     private fun handleGameState(player: Player, newToken: Token) {
@@ -116,13 +114,16 @@ class P4Presenter(val view: GameActivity) {
         checkLeftAndRight(player, newToken)
         checkRising(player, newToken)
         checkDecresent(player, newToken)
+        switchPlayerTurn()
     }
 
     private fun switchPlayerTurn() {
         playerTurn = if (::playerTurn.isInitialized && playerTurn == player1) {
             player2
-        } else
+        } else {
             player1
+        }
+            //println("${playerTurn.name}")
         view.setTurnText(playerTurn)
     }
 }
