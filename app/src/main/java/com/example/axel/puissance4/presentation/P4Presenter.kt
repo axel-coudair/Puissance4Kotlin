@@ -20,19 +20,32 @@ class P4Presenter(val view: GameActivity) {
     private lateinit var player1: Player
     private lateinit var player2: Player
     private lateinit var turnTextView: TextView
-    private val arrTokens = ArrayList<Token>()
+    private var arrTokens = ArrayList<Token>()
 
     fun startGame() {
         grid = view.findViewById(R.id.gridTokens)
+        player1 = Player(view.intent.getStringExtra("firstPlayerName"), 0, TokenColor.YELLOW)
+        player2 = Player(view.intent.getStringExtra("secondPlayerName"), 0, TokenColor.RED)
+        startAGamePlay()
+    }
+
+    fun startAGamePlay() {
         for (i in 0 until grid.childCount) {
             val token = grid.getChildAt(i) as ImageButton
             token.setOnClickListener { v -> onTokenCliked(v as ImageButton) }
         }
-        player1 = Player(view.intent.getStringExtra("firstPlayerName"), 0, TokenColor.YELLOW)
-        player2 = Player(view.intent.getStringExtra("secondPlayerName"), 0, TokenColor.RED)
+        resetGrid()
         turnTextView = view.findViewById(R.id.turnTextView)
         view.setNamesText(player1, player2)
         switchPlayerTurn()
+    }
+
+    private fun resetGrid() {
+        for (i in 0 until grid.childCount) {
+            val token = grid.getChildAt(i) as ImageButton
+            token?.setImageResource(TokenColor.WHITE)
+        }
+        arrTokens = ArrayList()
     }
 
     private fun onTokenCliked(view: ImageButton) {
@@ -63,8 +76,12 @@ class P4Presenter(val view: GameActivity) {
             compteur++
         }
 
-        if (compteur >= 4)
+        if (compteur >= 4){
+
+            playerTurn.score++
+            startAGamePlay()
             return view.displayWinner(playerTurn.name!!)
+        }
     }
 
     private fun checkLeftAndRight(player: Player, newToken: Token) {
@@ -105,8 +122,11 @@ class P4Presenter(val view: GameActivity) {
     }
 
     private fun handleWinOrSwitch(firstCounter: Int, secondCounter: Int){
-        if (firstCounter + secondCounter >= 3)
+        if (firstCounter + secondCounter >= 3){
+            playerTurn.score++
+            startAGamePlay()
             return view.displayWinner(playerTurn.name!!)
+        }
     }
 
     private fun handleGameState(player: Player, newToken: Token) {
@@ -123,7 +143,6 @@ class P4Presenter(val view: GameActivity) {
         } else {
             player1
         }
-            //println("${playerTurn.name}")
         view.setTurnText(playerTurn)
     }
 }
