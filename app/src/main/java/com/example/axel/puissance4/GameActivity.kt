@@ -25,11 +25,15 @@ class GameActivity : P4View, AppCompatActivity() {
     }
 
     override fun setNamesText(player1: Player, player2: Player) {
-        player1TextView.text = player1.name
-        player2TextView.text = player2.name
+        player1TextView.text = "${player1.name} : ${player1.score}"
+        player2TextView.text = "${player2.name} : ${player2.score}"
     }
 
     override fun showCannotAddToken() {
         Toast.makeText(this, "Vous ne pouvez plus ajouter de jeton à la colonne souhaité", Toast.LENGTH_SHORT).show()
+    }
+
+    override fun displayWinner(name: String) {
+        Toast.makeText(this, "C'est gagné ${name} !", Toast.LENGTH_LONG).show()
     }
 }
