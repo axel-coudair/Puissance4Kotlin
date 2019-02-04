@@ -2,6 +2,7 @@ package com.example.axel.puissance4
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.widget.Toast
 import com.example.axel.puissance4.model.Player
 import com.example.axel.puissance4.presentation.P4Presenter
 import com.example.axel.puissance4.presentation.P4View
@@ -26,5 +27,9 @@ class GameActivity : P4View, AppCompatActivity() {
     override fun setNamesText(player1: Player, player2: Player) {
         player1TextView.text = player1.name
         player2TextView.text = player2.name
+    }
+
+    override fun showCannotAddToken() {
+        Toast.makeText(this, "Vous ne pouvez plus ajouter de jeton à la colonne souhaité", Toast.LENGTH_SHORT).show()
     }
 }
