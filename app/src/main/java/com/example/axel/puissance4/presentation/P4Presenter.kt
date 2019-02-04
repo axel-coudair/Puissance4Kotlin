@@ -64,8 +64,7 @@ class P4Presenter(val view: GameActivity) {
         }
 
         if (compteur >= 4) {
-            Toast.makeText(view.baseContext, "C'est gagné ${playerTurn.name} !", Toast.LENGTH_LONG).show()
-            return
+            return view.displayWinner(playerTurn.name!!)
         } else switchPlayerTurn()
     }
 
@@ -78,11 +77,7 @@ class P4Presenter(val view: GameActivity) {
         while (arrTokens.find { it.x == (newToken.x - compteurLeft - 1) && it.y == newToken.y && it.player == player } != null) { // Check left-side
             compteurLeft++
         }
-
-        if (compteurLeft + compteurRight >= 3) {
-            Toast.makeText(view.baseContext, "C'est gagné ${playerTurn.name} !", Toast.LENGTH_LONG).show()
-            return
-        } else switchPlayerTurn()
+        handleWinOrSwitch(compteurLeft, compteurRight)
     }
 
     private fun checkRising(player: Player, newToken: Token) {
@@ -95,10 +90,7 @@ class P4Presenter(val view: GameActivity) {
             compteurBotLeft++
         }
 
-        if (compteurTopRight + compteurBotLeft >= 3) {
-            Toast.makeText(view.baseContext, "C'est gagné ${playerTurn.name} !", Toast.LENGTH_LONG).show()
-            return
-        } else switchPlayerTurn()
+        handleWinOrSwitch(compteurTopRight, compteurBotLeft)
     }
 
     private fun checkDecresent(player: Player, newToken: Token) {
@@ -110,9 +102,12 @@ class P4Presenter(val view: GameActivity) {
             compteurTopLeft++
         }
 
-        if (compteurBotRight + compteurTopLeft >= 3) {
-            Toast.makeText(view.baseContext, "C'est gagné ${playerTurn.name} !", Toast.LENGTH_LONG).show()
-            return
+        handleWinOrSwitch(compteurBotRight, compteurTopLeft)
+    }
+
+    private fun handleWinOrSwitch(firstCounter: Int, secondCounter: Int){
+        if (firstCounter + secondCounter >= 3) {
+            return view.displayWinner(playerTurn.name!!)
         } else switchPlayerTurn()
     }
 

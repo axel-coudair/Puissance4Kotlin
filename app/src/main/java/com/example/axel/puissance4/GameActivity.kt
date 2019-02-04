@@ -32,4 +32,8 @@ class GameActivity : P4View, AppCompatActivity() {
     override fun showCannotAddToken() {
         Toast.makeText(this, "Vous ne pouvez plus ajouter de jeton à la colonne souhaité", Toast.LENGTH_SHORT).show()
     }
+
+    override fun displayWinner(name: String) {
+        Toast.makeText(this, "C'est gagné ${name} !", Toast.LENGTH_LONG).show()
+    }
 }

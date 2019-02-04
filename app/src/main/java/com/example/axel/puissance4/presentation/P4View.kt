@@ -7,4 +7,5 @@ interface P4View {
     fun setTurnText(player: Player)
     fun setNamesText(player1: Player, player2: Player)
     fun showCannotAddToken()
+    fun displayWinner(name: String)
 }
