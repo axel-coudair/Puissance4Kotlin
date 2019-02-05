@@ -16,21 +16,11 @@ import android.view.View
 class GameActivity : P4View, AppCompatActivity() {
 
     private val presenter: P4Presenter = P4Presenter(this)
-    private lateinit var restartButton: Button
-    private lateinit var quitButton: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game)
         presenter.startGame()
-        initMenuButton()
-    }
-
-    fun initMenuButton() {
-        restartButton = findViewById(R.id.restartButton)
-        quitButton = findViewById(R.id.quitButton)
-        restartButton.setOnClickListener { v -> onRestartCliked(v as Button) }
-        quitButton.setOnClickListener { v -> onQuitCliked(v as Button) }
     }
 
     override fun setTurnText(player: Player) {
@@ -48,14 +38,5 @@ class GameActivity : P4View, AppCompatActivity() {
 
     override fun displayWinner(name: String) {
         Toast.makeText(this, "C'est gagné ${name} !", Toast.LENGTH_LONG).show()
-    }
-
-    private fun onRestartCliked(view: Button) {
-        presenter.startAGamePlay()
-    }
-
-    private fun onQuitCliked(view: Button) {
-        val intent = Intent(this, MainActivity::class.java)
-        startActivity(intent)
     }
 }
