@@ -1,8 +1,5 @@
 package com.example.axel.puissance4.presentation
 
-
-import android.graphics.Color
-import android.provider.Settings.Global.getString
 import android.support.v4.content.ContextCompat
 import android.support.v7.widget.CardView
 import android.support.v7.widget.GridLayout
@@ -169,6 +166,7 @@ class P4Presenter(val view: GameActivity) {
         } else {
             player1
         }
+        turnTextView.setTextColor(ContextCompat.getColor(view, playerTurn.tokenColor))
         view.setTurnText(playerTurn)
     }
 }
