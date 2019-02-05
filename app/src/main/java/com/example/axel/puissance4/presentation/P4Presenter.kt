@@ -1,12 +1,17 @@
 package com.example.axel.puissance4.presentation
 
 
+import android.content.Intent
+import android.support.v4.content.ContextCompat.startActivity
 import android.support.v7.widget.GridLayout
+import android.text.Layout
 import android.view.View
+import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import com.example.axel.puissance4.GameActivity
+import com.example.axel.puissance4.MainActivity
 import com.example.axel.puissance4.R
 import com.example.axel.puissance4.model.Player
 import com.example.axel.puissance4.model.Token
@@ -17,7 +22,7 @@ class P4Presenter(val view: GameActivity) {
     //TODO : Essayer de rendre le code plus élégant (MVP) + Recupérer la combinaison gagnante et l'afficher sur l'UI (avec encadré rouge ?) + Gérer fin de partie
 
     private lateinit var grid: GridLayout
-    private lateinit var menu: GridLayout
+    private lateinit var menu: View
     private lateinit var playerTurn: Player
     private lateinit var player1: Player
     private lateinit var player2: Player
@@ -26,13 +31,15 @@ class P4Presenter(val view: GameActivity) {
 
     fun startGame() {
         grid = view.findViewById(R.id.gridTokens)
-        menu = view.findViewById(R.id.gridWinMenu)
+        menu = view.findViewById(R.id.restartMenu)
         player1 = Player(view.intent.getStringExtra("firstPlayerName"), 0, TokenColor.YELLOW)
         player2 = Player(view.intent.getStringExtra("secondPlayerName"), 0, TokenColor.RED)
         startAGamePlay()
     }
 
     fun startAGamePlay() {
+
+        menu.visibility = View.INVISIBLE
         for (i in 0 until grid.childCount) {
             val token = grid.getChildAt(i) as ImageButton
             token.setOnClickListener { v -> onTokenCliked(v as ImageButton) }
@@ -60,6 +67,9 @@ class P4Presenter(val view: GameActivity) {
         arrTokens.filter { it.x == newToken.x }.forEach { if (it.y!! > maxY) maxY = it.y!! } // find the biggest Y of X
         addTokenToBoard(newToken, maxY)
     }
+
+
+
 
     private fun addTokenToBoard(newToken: Token, maxY: Int) {
         if (maxY < 5) {
@@ -127,19 +137,16 @@ class P4Presenter(val view: GameActivity) {
     }
 
     private fun handleWin(){
-            playerTurn.score++
-
-            showMenu(playerTurn)
-            startAGamePlay()
-            return view.displayWinner(playerTurn.name!!)
+        playerTurn.score++
+        showMenu(playerTurn)
+        return view.displayWinner(playerTurn.name!!)
     }
 
     private fun showMenu(player: Player){
-
         menu.visibility = View.VISIBLE
-        menu.bringToFront()
-//        startAGamePlay()
+        
     }
+
 
     private fun handleGameState(player: Player, newToken: Token) {
         checkTopAndBottom(player, newToken)
