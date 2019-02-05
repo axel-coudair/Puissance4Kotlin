@@ -9,6 +9,7 @@
             android:layout_height="match_parent"
             android:layout_marginTop="150dp"
             android:layout_marginBottom="150dp"
+            android:id="@+id/cardWinMenu"
             android:layout_marginLeft="50dp"
             android:layout_marginRight="50dp" app:cardBackgroundColor="@color/colorPrimaryDark">
         <android.support.v7.widget.GridLayout
@@ -27,7 +28,7 @@
                     android:text="@string/winnerTextView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/winnerTextView"
+                    android:id="@+id/menuTextView"
                     android:textSize="22sp"
                     android:layout_centerHorizontal="true"
                     android:textColor="@color/cardview_light_background" android:textStyle="bold" app:layout_column="0"

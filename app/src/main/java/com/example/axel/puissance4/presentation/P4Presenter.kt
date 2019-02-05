@@ -1,6 +1,10 @@
 package com.example.axel.puissance4.presentation
 
 
+import android.graphics.Color
+import android.provider.Settings.Global.getString
+import android.support.v4.content.ContextCompat
+import android.support.v7.widget.CardView
 import android.support.v7.widget.GridLayout
 import android.view.View
 import android.widget.ImageButton
@@ -18,6 +22,8 @@ class P4Presenter(val view: GameActivity) {
 
     private lateinit var grid: GridLayout
     private lateinit var menu: View
+    private lateinit var menuCard: CardView
+    private lateinit var menuTextView: TextView
     private lateinit var playerTurn: Player
     private lateinit var player1: Player
     private lateinit var player2: Player
@@ -27,9 +33,11 @@ class P4Presenter(val view: GameActivity) {
     fun startGame() {
         grid = view.findViewById(R.id.gridTokens)
         menu = view.findViewById(R.id.restartMenu)
-        menu = view.findViewById(R.id.restartMenu)
+        menuCard = view.findViewById(R.id.cardWinMenu)
+        menuTextView = view.findViewById(R.id.menuTextView)
+
         player1 = Player(view.intent.getStringExtra("firstPlayerName"), 0, TokenImg.YELLOW, TokenColor.YELLOW)
-        player2 = Player(view.intent.getStringExtra("secondPlayerName"), 0, TokenImg.RED, TokenColor.YELLOW)
+        player2 = Player(view.intent.getStringExtra("secondPlayerName"), 0, TokenImg.RED, TokenColor.RED)
         startAGamePlay()
     }
 
@@ -63,9 +71,6 @@ class P4Presenter(val view: GameActivity) {
         arrTokens.filter { it.x == newToken.x }.forEach { if (it.y!! > maxY) maxY = it.y!! } // find the biggest Y of X
         addTokenToBoard(newToken, maxY)
     }
-
-
-
 
     private fun addTokenToBoard(newToken: Token, maxY: Int) {
         if (maxY < 5) {
@@ -134,12 +139,20 @@ class P4Presenter(val view: GameActivity) {
 
     private fun handleWin(){
         playerTurn.score++
-        showMenu(playerTurn)
+        showMenu()
         return view.displayWinner(playerTurn.name!!)
     }
 
-    private fun showMenu(player: Player){
+    private fun showMenu(){
         menu.visibility = View.VISIBLE
+        menuCard.setCardBackgroundColor(ContextCompat.getColor(view, playerTurn.tokenColor))
+        if (playerTurn == player1)
+            menuTextView.setTextColor(ContextCompat.getColor(view, R.color.colorWhite))
+        else
+            menuTextView.setTextColor(ContextCompat.getColor(view, R.color.colorBlack))
+        var string = view.getString(R.string.winnerTextView)
+        string = string + playerTurn.name
+        menuTextView.text = string
     }
 
     private fun handleGameState(player: Player, newToken: Token) {
