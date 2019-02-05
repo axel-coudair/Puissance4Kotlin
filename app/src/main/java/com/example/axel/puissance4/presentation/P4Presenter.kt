@@ -1,15 +1,18 @@
 package com.example.axel.puissance4.presentation
 
 
+import android.content.Intent
 import android.graphics.Color
 import android.provider.Settings.Global.getString
 import android.support.v4.content.ContextCompat
 import android.support.v7.widget.CardView
 import android.support.v7.widget.GridLayout
 import android.view.View
+import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
 import com.example.axel.puissance4.GameActivity
+import com.example.axel.puissance4.MainActivity
 import com.example.axel.puissance4.R
 import com.example.axel.puissance4.model.Player
 import com.example.axel.puissance4.model.Token
@@ -23,11 +26,14 @@ class P4Presenter(val view: GameActivity) {
     private lateinit var grid: GridLayout
     private lateinit var menu: View
     private lateinit var menuCard: CardView
+    private lateinit var turnTextView: TextView
+    private lateinit var restartButton: Button
+    private lateinit var quitButton: Button
     private lateinit var menuTextView: TextView
+
     private lateinit var playerTurn: Player
     private lateinit var player1: Player
     private lateinit var player2: Player
-    private lateinit var turnTextView: TextView
     private var arrTokens = ArrayList<Token>()
 
     fun startGame() {
@@ -39,6 +45,7 @@ class P4Presenter(val view: GameActivity) {
         player1 = Player(view.intent.getStringExtra("firstPlayerName"), 0, TokenImg.YELLOW, TokenColor.YELLOW)
         player2 = Player(view.intent.getStringExtra("secondPlayerName"), 0, TokenImg.RED, TokenColor.RED)
         startAGamePlay()
+        initMenuButton()
     }
 
     fun startAGamePlay() {
@@ -52,6 +59,22 @@ class P4Presenter(val view: GameActivity) {
         turnTextView = view.findViewById(R.id.turnTextView)
         view.setNamesText(player1, player2)
         switchPlayerTurn()
+    }
+
+    fun initMenuButton() {
+        restartButton = view.findViewById(R.id.restartButton)
+        quitButton = view.findViewById(R.id.quitButton)
+        restartButton.setOnClickListener { v -> onRestartCliked(v as Button) }
+        quitButton.setOnClickListener { v -> onQuitCliked(v as Button) }
+    }
+
+    private fun onRestartCliked(view: Button) {
+        startAGamePlay()
+    }
+
+    private fun onQuitCliked(button: Button) {
+        val intent = Intent(view, MainActivity::class.java)
+        view.startActivity(intent)
     }
 
     private fun resetGrid() {
