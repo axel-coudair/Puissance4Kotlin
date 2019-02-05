@@ -192,6 +192,7 @@ class P4Presenter(val view: GameActivity) {
         } else {
             player1
         }
+        turnTextView.setTextColor(ContextCompat.getColor(view, playerTurn.tokenColor))
         view.setTurnText(playerTurn)
     }
 }
