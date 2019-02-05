@@ -1,23 +1,29 @@
 package com.example.axel.puissance4.presentation
 
 
+import android.graphics.Color
+import android.provider.Settings.Global.getString
+import android.support.v4.content.ContextCompat
+import android.support.v7.widget.CardView
 import android.support.v7.widget.GridLayout
 import android.view.View
 import android.widget.ImageButton
 import android.widget.TextView
-import android.widget.Toast
 import com.example.axel.puissance4.GameActivity
 import com.example.axel.puissance4.R
 import com.example.axel.puissance4.model.Player
 import com.example.axel.puissance4.model.Token
 import com.example.axel.puissance4.model.TokenColor
+import com.example.axel.puissance4.model.TokenImg
 
 class P4Presenter(val view: GameActivity) {
 
     //TODO : Essayer de rendre le code plus élégant (MVP) + Recupérer la combinaison gagnante et l'afficher sur l'UI (avec encadré rouge ?) + Gérer fin de partie
 
     private lateinit var grid: GridLayout
-    private lateinit var menu: GridLayout
+    private lateinit var menu: View
+    private lateinit var menuCard: CardView
+    private lateinit var menuTextView: TextView
     private lateinit var playerTurn: Player
     private lateinit var player1: Player
     private lateinit var player2: Player
@@ -26,13 +32,18 @@ class P4Presenter(val view: GameActivity) {
 
     fun startGame() {
         grid = view.findViewById(R.id.gridTokens)
-        menu = view.findViewById(R.id.gridWinMenu)
-        player1 = Player(view.intent.getStringExtra("firstPlayerName"), 0, TokenColor.YELLOW)
-        player2 = Player(view.intent.getStringExtra("secondPlayerName"), 0, TokenColor.RED)
+        menu = view.findViewById(R.id.restartMenu)
+        menuCard = view.findViewById(R.id.cardWinMenu)
+        menuTextView = view.findViewById(R.id.menuTextView)
+
+        player1 = Player(view.intent.getStringExtra("firstPlayerName"), 0, TokenImg.YELLOW, TokenColor.YELLOW)
+        player2 = Player(view.intent.getStringExtra("secondPlayerName"), 0, TokenImg.RED, TokenColor.RED)
         startAGamePlay()
     }
 
     fun startAGamePlay() {
+
+        menu.visibility = View.INVISIBLE
         for (i in 0 until grid.childCount) {
             val token = grid.getChildAt(i) as ImageButton
             token.setOnClickListener { v -> onTokenCliked(v as ImageButton) }
@@ -46,7 +57,7 @@ class P4Presenter(val view: GameActivity) {
     private fun resetGrid() {
         for (i in 0 until grid.childCount) {
             val token = grid.getChildAt(i) as ImageButton
-            token?.setImageResource(TokenColor.WHITE)
+            token?.setImageResource(TokenImg.WHITE)
         }
         arrTokens = ArrayList()
     }
@@ -127,18 +138,21 @@ class P4Presenter(val view: GameActivity) {
     }
 
     private fun handleWin(){
-            playerTurn.score++
-
-            showMenu(playerTurn)
-            startAGamePlay()
-            return view.displayWinner(playerTurn.name!!)
+        playerTurn.score++
+        showMenu()
+        return view.displayWinner(playerTurn.name!!)
     }
 
-    private fun showMenu(player: Player){
-
+    private fun showMenu(){
         menu.visibility = View.VISIBLE
-        menu.bringToFront()
-//        startAGamePlay()
+        menuCard.setCardBackgroundColor(ContextCompat.getColor(view, playerTurn.tokenColor))
+        if (playerTurn == player1)
+            menuTextView.setTextColor(ContextCompat.getColor(view, R.color.colorWhite))
+        else
+            menuTextView.setTextColor(ContextCompat.getColor(view, R.color.colorBlack))
+        var string = view.getString(R.string.winnerTextView)
+        string = string + playerTurn.name
+        menuTextView.text = string
     }
 
     private fun handleGameState(player: Player, newToken: Token) {
