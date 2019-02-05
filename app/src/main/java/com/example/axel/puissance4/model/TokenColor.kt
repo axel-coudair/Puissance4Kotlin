@@ -4,8 +4,7 @@ import com.example.axel.puissance4.R
 
 class TokenColor {
     companion object {
-        const val YELLOW = R.drawable.yellow
-        const val RED = R.drawable.rouge
-        const val WHITE = R.drawable.white
+        const val YELLOW = R.color.colorYellow
+        const val RED = R.color.colorRed
     }
 }

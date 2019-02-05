@@ -1,21 +1,16 @@
 package com.example.axel.puissance4.presentation
 
 
-import android.content.Intent
-import android.support.v4.content.ContextCompat.startActivity
 import android.support.v7.widget.GridLayout
-import android.text.Layout
 import android.view.View
-import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
-import android.widget.Toast
 import com.example.axel.puissance4.GameActivity
-import com.example.axel.puissance4.MainActivity
 import com.example.axel.puissance4.R
 import com.example.axel.puissance4.model.Player
 import com.example.axel.puissance4.model.Token
 import com.example.axel.puissance4.model.TokenColor
+import com.example.axel.puissance4.model.TokenImg
 
 class P4Presenter(val view: GameActivity) {
 
@@ -32,8 +27,9 @@ class P4Presenter(val view: GameActivity) {
     fun startGame() {
         grid = view.findViewById(R.id.gridTokens)
         menu = view.findViewById(R.id.restartMenu)
-        player1 = Player(view.intent.getStringExtra("firstPlayerName"), 0, TokenColor.YELLOW)
-        player2 = Player(view.intent.getStringExtra("secondPlayerName"), 0, TokenColor.RED)
+        menu = view.findViewById(R.id.restartMenu)
+        player1 = Player(view.intent.getStringExtra("firstPlayerName"), 0, TokenImg.YELLOW, TokenColor.YELLOW)
+        player2 = Player(view.intent.getStringExtra("secondPlayerName"), 0, TokenImg.RED, TokenColor.YELLOW)
         startAGamePlay()
     }
 
@@ -53,7 +49,7 @@ class P4Presenter(val view: GameActivity) {
     private fun resetGrid() {
         for (i in 0 until grid.childCount) {
             val token = grid.getChildAt(i) as ImageButton
-            token?.setImageResource(TokenColor.WHITE)
+            token?.setImageResource(TokenImg.WHITE)
         }
         arrTokens = ArrayList()
     }
@@ -144,9 +140,7 @@ class P4Presenter(val view: GameActivity) {
 
     private fun showMenu(player: Player){
         menu.visibility = View.VISIBLE
-        
     }
-
 
     private fun handleGameState(player: Player, newToken: Token) {
         checkTopAndBottom(player, newToken)
