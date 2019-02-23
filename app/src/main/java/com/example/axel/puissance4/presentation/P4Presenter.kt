@@ -7,6 +7,7 @@ import android.provider.Settings.Global.getString
 import android.support.v4.content.ContextCompat
 import android.support.v7.widget.CardView
 import android.support.v7.widget.GridLayout
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.ImageButton
@@ -101,7 +102,11 @@ class P4Presenter(val view: GameActivity) {
             arrTokens.add(newToken)
             val token: ImageButton? = grid.findViewWithTag(newToken.getTagFormat())
             token?.setImageResource(playerTurn.tokenImg)
+            if (arrTokens.filter{ it.y == 5 }.count() == 7){
+                showMenu(true)
+            }
             handleGameState(playerTurn, newToken)
+
         } else
             view.showCannotAddToken()
     }
@@ -162,19 +167,19 @@ class P4Presenter(val view: GameActivity) {
 
     private fun handleWin(){
         playerTurn.score++
-        showMenu()
+        showMenu(false)
         return view.displayWinner(playerTurn.name!!)
     }
 
-    private fun showMenu(){
+    private fun showMenu(isTie: Boolean = false){
         menu.visibility = View.VISIBLE
-        menuCard.setCardBackgroundColor(ContextCompat.getColor(view, playerTurn.tokenColor))
-        if (playerTurn == player1)
+        menuCard.setCardBackgroundColor(ContextCompat.getColor(view, if (isTie) R.color.colorWhite else playerTurn.tokenColor))
+        if ((playerTurn == player1 ) && !isTie)
             menuTextView.setTextColor(ContextCompat.getColor(view, R.color.colorWhite))
         else
             menuTextView.setTextColor(ContextCompat.getColor(view, R.color.colorBlack))
         var string = view.getString(R.string.winnerTextView)
-        string = string + playerTurn.name
+        string = if (isTie) view.getString(R.string.tieTextView) else string + playerTurn.name
         menuTextView.text = string
     }
 
