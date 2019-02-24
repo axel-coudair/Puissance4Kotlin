@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Puissance4</string>
+    <string name="winnerTextView"> Le gagnant est : </string>
+    <string name="tieTextView"> C\'est une égalité </string>
+    <string name="quitButton"> Quitter</string>
+    <string name="restartButton"> Rejouer</string>
 </resources>
