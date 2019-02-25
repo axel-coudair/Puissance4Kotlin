@@ -1,7 +1,7 @@
 package com.example.axel.puissance4
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.GridLayoutManager
+import android.support.v7.widget.LinearLayoutManager
 import com.example.axel.puissance4.model.Player
 import kotlinx.android.synthetic.main.activity_ranking.*
 import org.jetbrains.anko.db.MapRowParser
@@ -32,7 +32,7 @@ class RankingActivity : AppCompatActivity() {
         }
 
         // Creates a vertical Layout Manager
-        list_ranking.layoutManager = GridLayoutManager(this, 1)
+        list_ranking.layoutManager = LinearLayoutManager(this)
 
         // You can use GridLayoutManager if you want multiple columns. Enter the number of columns as a parameter.
 //        rv_animal_list.layoutManager = GridLayoutManager(this, 2)
