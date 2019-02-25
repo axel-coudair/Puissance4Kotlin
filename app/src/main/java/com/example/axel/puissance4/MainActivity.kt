@@ -14,11 +14,18 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val button = findViewById<Button>(R.id.btnPlay)
+        val btnRanking = findViewById<Button>(R.id.btnShowRanking)
 
-        button.setOnClickListener {onPlayClick(it)}
+        button.setOnClickListener {onPlayClick()}
+        btnRanking.setOnClickListener {onRankingClick()}
     }
 
-    private fun onPlayClick(view: View) {
+    private fun onRankingClick() {
+        val intent = Intent(this, RankingActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun onPlayClick() {
         val errorMessageTextView = findViewById<TextView>(R.id.textViewError)
         val firstPlayerName = findViewById<EditText>(R.id.editTextPlayer1)
         val secondPlayerName = findViewById<EditText>(R.id.editTextPlayer2)

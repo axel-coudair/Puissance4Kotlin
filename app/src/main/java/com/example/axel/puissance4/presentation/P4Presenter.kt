@@ -2,12 +2,9 @@ package com.example.axel.puissance4.presentation
 
 
 import android.content.Intent
-import android.graphics.Color
-import android.provider.Settings.Global.getString
 import android.support.v4.content.ContextCompat
 import android.support.v7.widget.CardView
 import android.support.v7.widget.GridLayout
-import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.ImageButton
@@ -15,10 +12,17 @@ import android.widget.TextView
 import com.example.axel.puissance4.GameActivity
 import com.example.axel.puissance4.MainActivity
 import com.example.axel.puissance4.R
+import com.example.axel.puissance4.database
 import com.example.axel.puissance4.model.Player
 import com.example.axel.puissance4.model.Token
 import com.example.axel.puissance4.model.TokenColor
 import com.example.axel.puissance4.model.TokenImg
+import android.content.ContentValues
+import android.util.Log
+import org.jetbrains.anko.db.MapRowParser
+import org.jetbrains.anko.db.parseList
+import org.jetbrains.anko.db.select
+
 
 class P4Presenter(val view: GameActivity) {
 
@@ -45,8 +49,30 @@ class P4Presenter(val view: GameActivity) {
 
         player1 = Player(view.intent.getStringExtra("firstPlayerName"), 0, TokenImg.YELLOW, TokenColor.YELLOW)
         player2 = Player(view.intent.getStringExtra("secondPlayerName"), 0, TokenImg.RED, TokenColor.RED)
+        retrievePlayerRanking(player1)
+        retrievePlayerRanking(player2)
+        Log.v("Kevin", player1.toString())
+
         startAGamePlay()
         initMenuButton()
+    }
+
+    private fun retrievePlayerRanking(player: Player) {
+        view.database.use {
+            select("Player")
+                .whereArgs("(name = {name})",
+                    "name" to player.name!!
+                )
+                .exec {
+                    parseList(object : MapRowParser<Map<String, Any?>> {
+                        override fun parseRow(columns: Map<String, Any?>): Map<String, Any?> {
+                            player.victory = columns["victory"].toString().toIntOrNull()!!
+                            player.victory = columns["defeat"].toString().toIntOrNull()!!
+                            return columns
+                        }
+                    })
+                }
+        }
     }
 
     fun startAGamePlay() {
@@ -165,9 +191,16 @@ class P4Presenter(val view: GameActivity) {
             handleWin()
     }
 
+    private fun updatePlayersStats() {
+        view.baseContext.database.use {
+            update("Player" )
+        }
+    }
+
     private fun handleWin(){
         playerTurn.score++
         showMenu(false)
+        updatePlayersStats()
         return view.displayWinner(playerTurn.name!!)
     }
 
